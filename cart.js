@@ -35,7 +35,9 @@ const cart = [
 
  
 
-// const summedPrice = cart.price.reduce(Callback(acc, curr) => {return acc + curr})
+const summedPrice = cart.reduce((acc, curr)=>{
+    return acc + curr.price
+}, 0)
 
 console.log(summedPrice)
 //////////////////PROBLEM 2////////////////////
@@ -55,10 +57,10 @@ console.log(summedPrice)
 
 //CODE HERE
 function calcFinalPrice(cartTotal, couponValue, tax){
-    return ((cartTotal - couponValue) * tax)
+    return ((cartTotal - couponValue) * (tax+1))
 }
 
-
+// console.log(calcFinalPrice(summedPrice, 3.00, .06))
 //////////////////PROBLEM 3////////////////////
 /*  
     In this problem, you'll create a model for 
@@ -80,9 +82,10 @@ function calcFinalPrice(cartTotal, couponValue, tax){
 */
 
 /*
-name, we need to know who's order we are working on
-items, we need to know what we need to make
-location, we need to know where we are delivering to
+firstName, (string) we need to know who's order we are working on
+lastName, (string) we need to know who's order we are working on
+phoneNumber, (string) we need to know how to contact when order is ready
+creditCard, (number) we need to know how to charge our customers
 
 */
 
@@ -91,4 +94,9 @@ location, we need to know where we are delivering to
     guidelines.
 */
 
-//CODE HERE
+const customer = {
+    firstName = 'Tyler',
+    lastName = 'Walker',
+    phoneNumber = '420-420-1738',
+    creditCard = 4200696917384200
+}

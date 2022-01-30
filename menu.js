@@ -117,15 +117,8 @@ let foodArr =[ pizza,
 
 //CODE HERE
 
-const filteredFood = foodArr.filter((tag)=>{  
-    for(let i = 0; i < foodArr.length-1; i++){
-        if(foodArr[i].tags.includes(tag)){
-            return foodArr[i]
-        }
-    }
-},)
-/////////////////////////////////////////////////////////////////////////////////////return to this one
-console.log(filteredFood)
+const filteredFood = foodArr.filter(meal => meal.tags.includes("olive-oil"))
+// console.log(filteredFood)
 
 //////////////////PROBLEM 5////////////////////
 /* 
@@ -167,10 +160,14 @@ console.log(filteredFood)
 */
 
 function filterByProperty (property, number, type){
-    property = String(property)
-    if(type == "above"){
-        
-    }
+    let filterArr = foodArr.filter(meal => {
+        if(type === "above"){
+            return meal[property] > number
+        }else if(type === 'below'){
+            return meal[property] < number
+        }
+    })
+    return filterArr
 }
 
 
@@ -181,4 +178,4 @@ function filterByProperty (property, number, type){
     You'll have to console.log to see the filtered array
 */
 
-//CODE HERE
+console.log(filterByProperty("price", 12, "below"))
